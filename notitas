@@ -1,0 +1,20 @@
+#Comandos importantes
+kubectl get all
+eval $(minikube docker-env)
+
+minikube service list
+
+
+#Esto es para abrir otra terminal y poder manipular minikube desde ahi.
+#Copiar las ultimas 3 lineas de la comanda env (ejemplo)
+export DOCKER_CERT_PATH=/Users/corozco/.minikube/certs
+; export MINIKUBE_ACTIVE_DOCKERD=minikube
+; export _=/usr/bin/env
+
+#Conectarse a un pod (cambiar mysql por el pod que quieras)
+kubectl exec -it $(kubectl get pods | grep mysql | cut -d" " -f1) -- sh
+
+#Conectarse al ssh nginx
+ssh -p 2222 admin@192.168.99.110
+#Si el puerto 2222 esta ocupado borrar la key
+cat /Users/corozco/.ssh/known_hosts (suprimir la linea donde esta la ip)
