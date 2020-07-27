@@ -1,13 +1,27 @@
 minikube delete
 
 minikube config unset vm-driver
-minikube start --driver=virtualbox
+
+# Detect the platform (similar to $OSTYPE)
+OS="`uname`"
+
+case $OS in
+	"Linux")
+		minikube start
+		sed -i -e "s/xxxx-xxxx/192.168.99.110-192.168.99.115/g" srcs/configmap.yml
+	;;
+	"Darwin")
+		minikube start --driver=virtualbox
+		sed -i -e "s/xxxx-xxxx/172.17.0.10-172.17.0.15/g" srcs/configmap.yml
+	;;
+	*) ;;
+esac
+
 eval $(minikube docker-env)
 
 #metallb + configmap
-Kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
 kubectl create -f srcs/configmap.yml
-
 
 #builds
 docker build -t mysql_alpine srcs/mysql
