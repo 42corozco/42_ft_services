@@ -8,11 +8,11 @@ OS="`uname`"
 case $OS in
 	"Linux")
 		minikube start
-		sed -i -e "s/xxxx-xxxx/192.168.99.110-192.168.99.115/g" srcs/configmap.yml
+		sed -i -e "s/xxxx-xxxx/172.17.0.10-172.17.0.15/g" srcs/configmap.yml
 	;;
 	"Darwin")
 		minikube start --driver=virtualbox
-		sed -i -e "s/xxxx-xxxx/172.17.0.10-172.17.0.15/g" srcs/configmap.yml
+		sed -i -e "s/xxxx-xxxx/192.168.99.110-192.168.99.115/g" srcs/configmap.yml
 	;;
 	*) ;;
 esac
