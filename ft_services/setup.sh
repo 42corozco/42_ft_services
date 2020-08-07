@@ -34,8 +34,8 @@ docker build -t wordpress_alpine srcs/wordpress
 #deploys
 kubectl apply -f srcs/k8s/nginx.yaml
 
-sleep 20s
-kubectl exec -i $(kubectl get pods | grep mysql | cut -d" " -f1) -- mysql -u root -e 'CREATE DATABASE wordpress;' > /dev/null
+sleep 12s
+#kubectl exec -i $(kubectl get pods | grep mysql | cut -d" " -f1) -- mysql -u root -e 'CREATE DATABASE wordpress;' > /dev/null
 kubectl exec -i $(kubectl get pods | grep mysql | cut -d" " -f1) -- mysql wordpress -u root < srcs/mysql/srcs/wordpress.sql
 
 

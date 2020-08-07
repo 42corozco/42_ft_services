@@ -14,19 +14,6 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: php-pv-claim
-  labels:
-    app: phpmyadmin
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
@@ -54,10 +41,3 @@ spec:
         ports:
         - containerPort: 5050
           name: phpmyadmin
-        volumeMounts:
-        - name: phpmyadmin-persistent-storage
-          mountPath: /var/www/html
-      volumes:
-      - name: phpmyadmin-persistent-storage
-        persistentVolumeClaim:
-          claimName: wp-pv-claim
