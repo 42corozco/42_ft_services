@@ -5,6 +5,8 @@ RUN apk update \
 	&& apk add nginx \
 	&& apk add openssl openssh
 
+RUN apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
+
 COPY srcs/sano.sh /etc/init.d/sano.sh
 RUN chmod 777 /etc/init.d/sano.sh
 RUN rm /etc/nginx/conf.d/default.conf
@@ -20,6 +22,9 @@ RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -t rsa -N ''
 COPY srcs/pass.sh /tmp/pass.sh
 COPY srcs/finito.sh /finito.sh
 RUN sh /tmp/pass.sh
+
+RUN mkdir -p /etc/telegraf
+COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
 EXPOSE 80 443 2222
 

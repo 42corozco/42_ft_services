@@ -9,8 +9,17 @@ RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-a
 	&& mv phpMyAdmin-5.0.2-all-languages /usr/share/phpmyadmin \
 	&& rm -rf /var/cache/apk/*
 
+RUN apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
+
 COPY srcs/config.inc.php /usr/share/phpmyadmin/config.inc.php
+
+RUN mkdir -p /etc/telegraf
+COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
+COPY ./srcs/start.sh /start.sh
+
+RUN chmod 755 /start.sh
 
 EXPOSE 5000
 
-CMD php -S 0.0.0.0:5000 -t /usr/share/phpmyadmin
+CMD ["/start.sh"]
+#CMD telegraf & ; php -S 0.0.0.0:5000 -t /usr/share/phpmyadmin

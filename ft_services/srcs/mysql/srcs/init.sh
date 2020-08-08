@@ -5,4 +5,5 @@ FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 eof
+telegraf &
 /usr/bin/mysqld --console --init_file=/tmp/sql
