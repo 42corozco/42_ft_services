@@ -50,5 +50,22 @@ kubectl apply -f srcs/k8s/influxdb.yaml
 kubectl apply -f srcs/k8s/grafana.yaml
 kubectl apply -f srcs/k8s/phpmyadmin.yaml
 
+echo "---------------------------------------------------"
+echo "|            |     User       |      Password     |"
+echo "|grafana     |admin           |admin1234          |"
+echo "|phpmyadmin  |root            |root               |"
+echo "|wordpress   |admin           |admin              |"
+echo "|   ->       |   user1        |user1              |"
+echo "|   ->       |   user2        |user2              |"
+echo "|   ->       |   user3        |user3              |"
+echo "---------------------------------------------------"
+echo "---------------------------------------------------"
+echo "|ssh nginx   |ssh -p 2222 admin@ url | pass: admin|"
+echo "|ftps        |ftp url             21 |            |"
+echo "|   ->       |   User:               | user       |"
+echo "|   ->       |   Password:           | password   |"
+echo "---------------------------------------------------"
 
 #minikube dashboard &
+
+
