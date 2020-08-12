@@ -17,9 +17,6 @@ RUN mkdir -p /etc/telegraf
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 COPY ./srcs/start.sh /start.sh
 
-RUN chmod 755 /start.sh
-
 EXPOSE 5000
 
 CMD ["/start.sh"]
-#CMD telegraf & ; php -S 0.0.0.0:5000 -t /usr/share/phpmyadmin

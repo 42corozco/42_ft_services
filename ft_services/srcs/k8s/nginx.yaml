@@ -1,14 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
-  annotations:
-    metallb.universe.tf/allow-shared-ip: ft_services
+  name: nginx-service
   labels:
-    app: ft_services
+    app: nginx
 spec:
   selector:
-    app: ft_services
+    app: nginx
   type: LoadBalancer
   ports:
     - name: http
@@ -27,16 +25,16 @@ kind: Deployment
 metadata:
   name: nginx
   labels:
-    app: ft_services
+    app: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ft_services
+      app: nginx
   template:
     metadata:
       labels:
-        app: ft_services
+        app: nginx
     spec:
       containers:
       - image: nginx_alpine
