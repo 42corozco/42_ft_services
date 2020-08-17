@@ -7,7 +7,7 @@ RUN echo $IP > ip
 
 RUN apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 
-RUN yes "" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+RUN yes "" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
 
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY start_vsftpd.sh /bin/start_vsftpd.sh
