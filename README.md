@@ -3,11 +3,12 @@
 
 ```sh
 $ Status =
-	#??
+	#finished
 $ Note =
-	#??
-$ Development =
-	#??
+	#100
+$ Development = (compatible avec mac42 et xubuntu(vm ecole42))
+	# -> ft_services (cd ft_services)
+	#sh setup.sh
 ```
 
 ## Doc =
@@ -21,4 +22,6 @@ $ Development =
 * [Export DB](https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-and-reset-a-root-password-in-mysql)
 * [Export DB](https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-and-reset-a-root-password-in-mysql)
 * [Config.inc.php](https://www.jcz.fr/phpmyadmin/)
-
+* [metallb](https://medium.com/@shoaib_masood/metallb-network-loadbalancer-minikube-335d846dfdbe)
+* [IP Address Sharing -> metallb](https://metallb.universe.tf/usage/)
+* [example-> IP Address Sharing -> metallb](https://github.com/metallb/metallb/issues/271)
