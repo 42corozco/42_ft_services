@@ -1,4 +1,4 @@
-# ![N|Solid](https://i.ibb.co/vsr6w99/original.png) Corozco
+# ![N|Solid](https://i.ibb.co/vsr6w99/original.png) *[Mgarcia](https://github.com/martingarcialopez) & Corozco
 ## -ft_services(42cursus-2020//Paris)
 
 ```sh
