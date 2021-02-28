@@ -10,6 +10,8 @@ $ Development = (compatible avec mac42 et xubuntu(vm ecole42))
 	# -> ft_services (cd ft_services)
 	#sh setup.sh
 ```
+## grafana, ftps, influxdb (ne marchent plus/dejaron de servir)
+
 
 ## Doc =
 ### Metallb
